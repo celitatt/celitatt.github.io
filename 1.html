@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>personajes - CrochtMe</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url("https://i.pinimg.com/736x/66/4e/bc/664ebca769865b4e017209a95e5c162f.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #imagen2 {
+            margin: 0;
+            height: 150px; 
+            width: 100%;   
+            background-image: url("https://i.pinimg.com/736x/df/ae/24/dfae24204996083c8d0a4bccfd16782e.jpg");
+            background-size: cover; 
+            background-position: center;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index:1000; 
+            text-align: center;
+        }
+
+        #imagen2 p {
+            font-size: 32px;
+            font-family: 'Arial Narrow';
+            color: white;
+            margin: 0;
+            line-height: 150px; 
+            text-shadow: 2px 2px 5px black; 
+        }
+
+        #productos {
+            margin-top: 180px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .producto {
+            background: rgba(255,255,255,0.85);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+
+        /* Carrito lateral */
+        #carrito {
+            position: fixed;
+            top: 436px;
+            left: 0;
+            width: 233px;
+            background: rgba(131, 119, 119, 0.8);
+            color: white;
+            padding: 15px;
+            height: calc(100% - 190px);
+            overflow-y: auto;
+        }
+
+        #carrito h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .item-carrito {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-carrito button {
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+
+        #total {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #finalizar {
+            display: block;
+            margin: 15px auto;
+            padding: 10px 20px;
+            background: #7c5e1d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #volver {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        #volver a {
+            background: #7c5e1d;
+            color: white;
+            padding: 3px 3px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imagen2">
+        <p>Personajes- CrochtMe</p>
+    </div>
+
+    <!-- Carrito lateral -->
+    <div id="carrito">
+        <h2>🛒 Carrito</h2>
+        <div id="listaCarrito"></div>
+        <div id="total">Total: $0</div>
+        <button id="finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+    </div>
+
+    <div id="productos">
+        <div class="producto" onclick="agregarCarrito('draculaura',100)">
+            <img src="https://i.pinimg.com/736x/37/50/e4/3750e4f1e7eb48a8cb3075a29439fbed.jpg" width="250" height="250"><br>
+            draculaura<br>$100
+        </div>
+        <div class="producto" onclick="agregarCarrito('howl',150)">
+            <img src="https://i.pinimg.com/736x/1e/2d/b4/1e2db462da8eb28de3e39451afdf8ac8.jpg" width="250" height="250"><br>
+            howl<br>$150
+        </div>
+        <div class="producto" onclick="agregarCarrito('gorillaz',200)">
+            <img src="https://i.pinimg.com/736x/f7/a0/27/f7a027b1aff25fd29962ea8765b3b4ac.jpg" width="250" height="250"><br>
+            gorillaz<br>$200
+        </div>
+        <div class="producto" onclick="agregarCarrito('sailor moon',250)">
+            <img src="https://i1-e.pinimg.com/736x/1c/87/af/1c87af84108a3f3a9be8b7337c784aaa.jpg" width="250" height="250"><br>
+            sailor moon<br>$250
+        </div>
+        <div class="producto" onclick="agregarCarrito('miku',300)">
+            <img src="https://i1-e.pinimg.com/736x/34/d2/93/34d293f3f4a37a36c85cd0d269e03303.jpg" width="250" height="250"><br>
+            miku<br>$300
+        </div>
+    </div>
+
+    <div id="volver">
+        <a href="crochtme.html">Regresar a la página principal</a>
+    </div>
+
+    <script>
+        let total = 0;
+        let carrito = [];
+
+        function agregarCarrito(nombre, precio) {
+            carrito.push({nombre, precio});
+            total += precio;
+            actualizarCarrito();
+        }
+
+        function eliminarProducto(index) {
+            total -= carrito[index].precio;
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            let lista = document.getElementById("listaCarrito");
+            lista.innerHTML = "";
+            carrito.forEach((item, index) => {
+                lista.innerHTML += `
+                    <div class="item-carrito">
+                        ${item.nombre} - $${item.precio}
+                        <button onclick="eliminarProducto(${index})">X</button>
+                    </div>`;
+            });
+            document.getElementById("total").innerText = "Total: $" + total;
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío");
+            } else {
+                alert("Gracias por tu compra. Total: $" + total);
+                carrito = [];
+                total = 0;
+                actualizarCarrito();
+            }
+        }
+    </script>
+</body>
+</html>

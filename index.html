@@ -1,0 +1,110 @@
+
+
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>proyecto.Chochet</title>
+    <style>
+        #imagen1{
+            margin: 0;
+            height: 100vh;
+            background-image: url("https://i.pinimg.com/736x/66/4e/bc/664ebca769865b4e017209a95e5c162f.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #imagen2 {
+            margin: 0;
+            height: 150px; 
+            width: 100%;   
+            background-image: url("https://i.pinimg.com/736x/df/ae/24/dfae24204996083c8d0a4bccfd16782e.jpg");
+            background-size: cover; 
+            background-position: center;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index:1000; 
+            text-align: center;
+        }
+
+        #imagen2 p {
+            font-size: 32px;
+            font-family: 'Arial Narrow';
+            color: white;
+            margin: 0;
+            line-height: 150px; 
+            text-shadow: 2px 2px 5px black; 
+        }
+
+        td a{
+            display:flex;
+            flex-direction:column; 
+            align-items:center;    
+            text-decoration: none;  
+        }
+
+        #tabla {
+            margin-top: 180px; 
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        #tabla th, #tabla td {
+            border: 20px solid #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #tabla th {
+            background: #7c5e1d;
+            color: white;
+        }
+
+        .sobre-nosotras {
+            text-align: center;
+            font-size: 28px;
+            font-family: 'Arial Narrow';
+            color: #7c5e1d;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            text-shadow: 1px 1px 3px #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="imagen2">
+        <p>pagina oficial, CrochtMe</p>
+    </div>
+    <table id="tabla">
+        <tr>
+            <th><a href="1.html"><font color="white">Personajes </font></a> </th>
+            <th><a href="2.html"><font color="white"> Ropa/Accesorios</font></a></th>
+            <th><a href="3.html"><font color="white">Peluches/Llaveros</font></a>  </th>
+            <th><a href="4.html"><font color="white">Otros productos</font></a> </th>
+        </tr>
+        <tr>
+            <td><img src="https://i.pinimg.com/1200x/2f/30/0b/2f300b2c7abd6c22f8096d758d6deb80.jpg" width="319" height="381"></td>
+            <td><img src="https://i.pinimg.com/736x/fe/01/37/fe0137071c1f5f5537cc9bd8c832df6c.jpg" width="319" height="381"></td>
+            <td><img src="https://i.pinimg.com/1200x/3f/f7/ee/3ff7ee1e9b19d9a896a28a9178bc2925.jpg" width="319" height="381"></td>
+            <td><img src="https://i.pinimg.com/736x/17/af/fc/17affc7c6aedeeb6b9d6989be5988c0a.jpg" width="319" height="381"></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="sobre-nosotras">
+                <a href="sobre.html">Sobre nosotras</a>
+            </td>
+        </tr>
+        <tr>
+        </tr>
+        <td><a href="inventario.html" >Inventario</a></td>
+        
+    </table>
+    
+
+</body>
+</html>

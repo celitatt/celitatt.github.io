@@ -1,0 +1,113 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nosotras</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #imagen1 {
+            min-height: 100vh;
+            background-image: url("https://i1-e.pinimg.com/1200x/71/c1/04/71c1047385e7ba9b0d06fc6171f2c238.jpg");
+            background-size: cover;
+            background-position: center; 
+            padding-top: 160px; /* espacio para que no tape el header */
+        }
+
+        #imagen2 {
+            margin: 0;
+            height: 150px; 
+            width: 100%;   
+            background-image: url("https://i1-e.pinimg.com/1200x/f4/66/85/f46685b01fe4362f69e8c93daabd3c26.jpg");
+            background-size: cover; 
+            background-position: center;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index:1000; 
+            text-align: center;
+        }
+
+        #imagen2 p {
+            font-size: 32px;
+            font-family: 'Arial Narrow';
+            color: white;
+            margin: 0;
+            line-height: 150px; 
+            text-shadow: 2px 2px 5px black; 
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contenido img {
+            width: 250px;
+            height: auto;
+            margin-right: 40px;
+        }
+
+        .contenido p {
+            flex: 1;
+            font-size: 20px;
+            font-family: 'Arial Narrow';
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Pie de página */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.6);
+        }
+
+        footer a {
+            background: #7c5e1d;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Arial Narrow';
+        }
+    </style>
+</head>
+<body>
+    <div id="imagen2">
+        <p>pagina oficial, CrochtMe</p>
+    </div>
+
+    <div id="imagen1">
+        <div class="contenido">
+            <img src="https://i.pinimg.com/736x/a7/25/b7/a725b755c46122b1fd619f3936c4d7cd.jpg" alt="Imagen decorativa">
+            <p>
+               nuestro nombres son Rocio y Carolina. ¡Hola! somos las creadoras de este sitio web, puede que haya defectos
+               en el, pero hicimos lo mejor que pudimos, consideramos que el arte es una escencia en la vida,
+               algo único en cada expresión o extensión. Por eso el arte de tejer es especial: los amigurumis son
+               más que puro hilo con relleno, son tiempo, intento y error, son cariño. Aquí podrán ver muestras de nuestro trabajo.
+               lxs queremxs
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="crochtme.html">Regresar a la página principal</a>
+    </footer>
+</body>
+</html>
